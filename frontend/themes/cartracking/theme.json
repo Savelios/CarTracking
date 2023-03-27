@@ -1,0 +1,8 @@
+{
+  "lumoImports": [
+    "typography",
+    "color",
+    "badge",
+    "utility"
+  ]
+}
