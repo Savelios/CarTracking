@@ -71,6 +71,7 @@ public class MapView extends VerticalLayout {
 //        });
 //        return button;
 //    }
+    //
     private void btnLunchClick(final ClickEvent<Button> event)
     {
         this.viewLunch = !this.viewLunch;
