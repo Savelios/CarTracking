@@ -36,6 +36,8 @@ public class CreateUserForm extends FormLayout {
         this.selectRoles = createSelect();
 
         this.createButton = createButton();
+
+        this.addClassNames("user-view");
         addFormItem(this.usernameField, "Введите username");
         addFormItem(this.passwordField, "Введите пароль");
         addFormItem(this.emailField, "Введите email");

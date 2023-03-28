@@ -5,9 +5,7 @@ import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.backend.views.ContentView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.login.AbstractLogin;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -15,7 +13,6 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @PageTitle("Авторизация")
 @Route(value = "auth", layout = ContentView.class)
@@ -46,6 +43,13 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
                 new ResponsiveStep("0", 1)
         );
 
+
+        enterButton.addClickListener(event -> {
+            if (authenticatedUser.get().isPresent()) {
+                enterButton.getUI().ifPresent(ui ->
+                        ui.navigate("map"));
+            }
+        });
 
         enterButton.addClassNames("enter-button");
         addClassNames("authorization-view");
