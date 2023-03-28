@@ -1,0 +1,97 @@
+
+.body {
+display: flex;
+background-color: blueviolet;
+justify-content: center;
+padding: 0;
+}
+
+.dialog{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnBuild {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgba(42, 182, 84, 0.918);
+    cursor: pointer;
+    color: white;
+    border-radius: 7px;
+    margin-top: 190px;
+    width: 250px;
+    height: 35px;
+}
+.btnBuild:hover{
+    background-color: rgb(49, 206, 96);
+}
+
+.close-icon{
+    display: flex;
+    cursor: pointer;
+}
+
+.btnBuildLocation {
+    background-color: rgba(42, 182, 84, 0.918);
+    color: white;
+    border-radius: 7px;
+    width: 200px;
+    height: 35px;
+    margin-right: 1%;
+}
+.btnBuildLocation:hover{
+    background-color: rgb(49, 206, 96);
+    cursor: pointer;
+}
+
+.btShowOffice {
+    position: relative;
+    align-items:center;
+    background-color: rgba(42, 182, 84, 0.918);
+    color: white;
+    border-radius: 7px;
+
+
+}
+.btShowOffice:hover {
+    background-color: rgb(49, 206, 96);
+    cursor: pointer;
+}
+
+.btnZoom {
+    position: relative;
+    align-items:center;
+    background-color: rgba(42, 182, 84, 0.918);
+    color: white;
+    border-radius: 7px;
+    margin-left: 1%;
+    width: 180px;
+}
+
+.btnZoom:hover {
+    background-color: rgb(49, 206, 96);
+    cursor: pointer;
+}
+
+.footer {
+position: fixed;  
+top: 0;
+display: flex;
+align-items:center;
+background-color: rgb(43, 43, 43);
+height: 10%;
+width: 100%;
+}
+
+.map {
+    margin-top: 5%;
+width: 100%;
+height: 90%;
+align-items:center;
+}
+
+.logo {
+    background-image: url(https://i.ibb.co/DGmCv8p/CTS-Logo.png);
+}
