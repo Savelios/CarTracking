@@ -29,16 +29,16 @@ public class MapJSUtil {
                     var map = document.getElementById('%s');
                     L.Routing.control(%s).addTo(map)
                 """;
-        String pointTemplate = "L.latLng(%s, %s)";
+        String pointTemplate = "[%s, %s]";
         List<String> formattedPoints = points.stream()
-                .map(p -> String.format(pointTemplate,strTemplate, p.latitude, p.longitude))
+                .map(p -> String.format(strTemplate, p.latitude, p.longitude))
                 .toList();
-        String pointsTemplate = "{ waypoints: [%s] }";
+        String pointsTemplate = "[%s]";
         String pointsJs = String.format(
                 pointsTemplate,
                 String.join(", ", formattedPoints)
         );
-        String resultJs = String.format(pointTemplate, strTemplate, mapId, pointsJs);
+        String resultJs = String.format(strTemplate, mapId, pointsJs);
         return resultJs;
     }
     public static class Coordinate {
