@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class HeaderView extends HorizontalLayout {
@@ -14,7 +15,6 @@ public class HeaderView extends HorizontalLayout {
 
     public HeaderView(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
-
         screen();
     }
 
@@ -45,7 +45,7 @@ public class HeaderView extends HorizontalLayout {
 
     public Div createLogo() {
         Div container = new Div();
-        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/jW0XRgf/gpsLOGO.png", "My Alt Image"));
+        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/wh3LsF6/gpsLOGO.png", "My Alt Image"));
         refresh.addClassNames("logo");
         container.add(refresh);
         return container;

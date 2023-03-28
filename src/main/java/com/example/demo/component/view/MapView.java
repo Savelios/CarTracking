@@ -2,6 +2,7 @@ package com.example.demo.component.view;
 
 import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.backend.views.HeaderView;
+import com.example.demo.ui.OSMMapView;
 import com.example.demo.utils.MapJSUtil;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.UI;
@@ -28,6 +29,7 @@ import software.xdev.vaadin.maps.leaflet.flow.data.LTileLayer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Route("/map")
 @AnonymousAllowed
@@ -38,15 +40,17 @@ public class MapView extends VerticalLayout {
     private Button btnLunch = new Button("Показать офис");
     private Button btnCenter = new Button("Показать офис");
     private Button btnBuildLocation;
-    private LMap map;
+    //private LMap map;
     private LMarker markerZob;
     private LMarker markerGreek;
+
+    private OSMMapView mapView;
 
 
     public MapView() {
         this.setPadding(false);
         this.addClassNames("body");
-        this.initMapComponents();
+        //this.initMapComponents();
 
         final HorizontalLayout headLayout = new HorizontalLayout();
         headLayout.addClassNames("header");
@@ -78,8 +82,23 @@ public class MapView extends VerticalLayout {
         this.btnBuildLocation.addClassNames("btnBuildLocation");
         this.btnCenter.addClassNames("btShowOffice");
         this.btnLunch.addClassNames("btnZoom");
-        this.btnCenter.addClickListener(e -> map.centerAndZoom(new LPoint(44.044150, 42.854870), new LPoint(44.044150, 42.854870)));
-        this.add(this.map, hlButtonContainer);
+        this.btnCenter.addClickListener(e -> {
+            final Random rnd = new Random();
+            final List<MapJSUtil.Coordinate> coordinates = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                final double lat = rnd.nextDouble(-12.0, 54.0);
+                final double lon = rnd.nextDouble(22.0, 44.0);
+                MapJSUtil.Coordinate coordinate = new MapJSUtil.Coordinate();
+                coordinate.latitude = lat;
+                coordinate.longitude = lon;
+                coordinates.add(coordinate);
+            }
+            mapView.addPolyline(coordinates);
+        });
+        this.add(hlButtonContainer);
+        mapView = new OSMMapView();
+        mapView.addClassNames("map");
+        this.add(mapView);
         this.setSizeFull();
     }
 
@@ -90,47 +109,6 @@ public class MapView extends VerticalLayout {
         final List<LComponent> lunchComponents = Arrays.asList(
                 this.markerGreek);
 
-        this.map.setViewPoint(new LCenter(44.044150, 42.854870, this.viewLunch ? 16 : 17));
-        this.map.removeLComponents(this.viewLunch ? normalComponents : lunchComponents);
-        this.map.addLComponents(this.viewLunch ? lunchComponents : normalComponents);
-
         this.btnLunch.setText(this.viewLunch ? "Показать офис" : "Вернуться");
-    }
-
-    private void initMapComponents() {
-        this.markerZob = new LMarker(44.044150, 42.854870, "ZoB");
-        this.markerZob.setPopup("ЦИГАНЛАР office station");
-
-        final LMarker markerInfo = new LMarker(44.044150, 42.854870);
-        final LDivIcon div = new LDivIcon(
-                "<p><center><b>Добро пожаловать в систему отслеживания автомобилей!</b></center></p>");
-
-        markerInfo.setDivIcon(div);
-
-        this.markerGreek = new LMarker(49.675126, 12.161899);
-        this.markerGreek.setPopup("Greek Food");
-
-        this.map = new LMap(49.675126, 12.160733, 17);
-        this.map.setTileLayer(LTileLayer.DEFAULT_OPENSTREETMAP_TILE);
-        this.map.setId("main_map");
-
-        //this.map.setSizeFull();
-        // add some logic here for called Markers (token)
-        this.map.addMarkerClickListener(ev -> System.out.println(ev.getTag()));
-        this.map.addClassNames("map");
-        this.map.addLComponents(
-                markerInfo,
-                this.markerZob);
-
-        List<MapJSUtil.Coordinate> coordinates = new ArrayList<>();
-        for (double i = 0; i < 10; i++) {
-            MapJSUtil.Coordinate coordinate = new MapJSUtil.Coordinate();
-            coordinate.latitude = 44.0 + (i / 10);
-            coordinate.longitude = 42.8;
-            coordinates.add(coordinate);
-        }
-        String js = MapJSUtil.waypoints("main_map", coordinates);
-        Page currentPage = UI.getCurrent().getPage();
-        var result = currentPage.executeJs(js);
     }
 }
