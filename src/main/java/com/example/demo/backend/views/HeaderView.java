@@ -16,10 +16,10 @@ public class HeaderView extends HorizontalLayout {
 
     public void screen() {
         Button authButton = new Button("Вход  систему");
+        authButton.addClassNames("auth-button");
 
         authButton.addClickListener(event -> {
             authButton.getUI().ifPresent(ui -> ui.navigate("/auth"));
-            UI.getCurrent().getPage().reload();
         });
 
 
@@ -29,7 +29,8 @@ public class HeaderView extends HorizontalLayout {
 
     private static Div createLogo() {
         Div container = new Div();
-        Anchor refresh = new Anchor("/", new Image("https://solomonpro.ru/img/logo.svg", "My Alt Image"));
+        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/DGmCv8p/CTS-Logo.png", "My Alt Image"));
+        refresh.addClassNames("logo");
 //        refresh.addClassNames("view-title");
 //        container.addClassNames("view-title-container");
         container.add(refresh);

@@ -1,20 +1,15 @@
 package com.example.demo.component.view;
 
-import com.example.demo.backend.domain.User;
 import com.example.demo.backend.service.servant.CarServant;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
-import jakarta.annotation.security.RolesAllowed;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @Route("/search-car")
-@RolesAllowed("ROLE_USER")
+@AnonymousAllowed
 public class SearchCarView extends FormLayout {
     private final TextField searchByRegistrationNumberField;
     private final Button searchButton;

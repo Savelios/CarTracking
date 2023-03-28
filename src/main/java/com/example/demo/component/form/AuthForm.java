@@ -5,6 +5,7 @@ import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.backend.views.ContentView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.login.AbstractLogin;
 import com.vaadin.flow.component.notification.Notification;
@@ -38,7 +39,7 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         this.loginTF = createLoginField();
         this.passwordField = createPasswordField();
         this.enterButton = createEnterButton();
-
+        this.setWidth(String.valueOf(false));
         this.label = createLabel();
 
         this.setResponsiveSteps(
@@ -46,19 +47,17 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         );
 
 
-        addFormItem(this.loginTF, "Введите ваш username");
-
-
-        addFormItem(this.passwordField, "Введите ваш пароль");
-
         enterButton.addClassNames("enter-button");
         addClassNames("authorization-view");
+        addFormItem(this.loginTF, "Введите ваш username");
+        addFormItem(this.passwordField, "Введите ваш пароль");
 
         add(enterButton);
 
         // addFormItem(this.label, "Авторизованный пользователь");
 
-        add(label);
+//        add(label);
+
     }
 
     private TextField createLoginField() {

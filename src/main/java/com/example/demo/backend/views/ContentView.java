@@ -10,13 +10,7 @@ import com.vaadin.flow.router.RouterLayout;
 public class ContentView extends Div implements RouterLayout {
 
     public ContentView() {
-        setWidth("100%");
-        mainScreen();
-    }
 
-    public void mainScreen() {
-        Image image = new Image("https://solomonpro.ru/img/main_image_desk.svg", "Main Background");
-        this.addClassNames("main-view");
-        add(image);
+        this.addClassNames("content-view");
     }
 }
