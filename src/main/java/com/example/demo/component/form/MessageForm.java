@@ -1,6 +1,7 @@
 package com.example.demo.component.form;
 
 import com.example.demo.backend.viewModel.MessageViewModel;
+import com.example.demo.backend.views.ContentView;
 import com.example.demo.models.MessageType;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -13,7 +14,7 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 import java.util.Arrays;
 
 @AnonymousAllowed
-@Route("message")
+@Route(value = "message", layout = ContentView.class)
 public class MessageForm extends Div {
     private final MessageViewModel state = new MessageViewModel();
     public MessageForm() {
@@ -25,7 +26,7 @@ public class MessageForm extends Div {
         comboBox.setAllowCustomValue(true);
         comboBox.setItems(Arrays.stream(MessageType.values()).map(MessageType::getRusName).toList());
 
-        String loremIpsum = "";
+
         int charLimit = 600;
         Button enterButton = new Button("Отправить");
         TextArea textArea = new TextArea();
@@ -34,6 +35,7 @@ public class MessageForm extends Div {
         textArea.setMaxLength(charLimit);
         textArea.addClassNames("enter-button");
         textArea.setValueChangeMode(ValueChangeMode.EAGER);
+        String loremIpsum = textArea.getValue();
         textArea.addValueChangeListener(e -> {
             e.getSource()
                     .setHelperText(e.getValue().length() + "/" + charLimit);
@@ -41,7 +43,7 @@ public class MessageForm extends Div {
         textArea.setValue(loremIpsum);
 
         enterButton.addClickListener(event -> {
-            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
+//            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
         });
 
         addClassNames("message-view");
