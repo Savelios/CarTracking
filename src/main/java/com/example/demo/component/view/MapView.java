@@ -1,10 +1,13 @@
 package com.example.demo.component.view;
 
+import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
+import com.example.demo.backend.views.HeaderView;
 import com.example.demo.utils.MapJSUtil;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;
@@ -25,18 +28,22 @@ import software.xdev.vaadin.maps.leaflet.flow.data.LTileLayer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 @Route("/map")
 @AnonymousAllowed
 public class MapView extends VerticalLayout {
+
+
     private boolean viewLunch = false;
-    private final Button btnLunch = new Button("Показать офис");
-    private final Button btnCenter = new Button("Показать офис");
+    private Button btnLunch = new Button("Показать офис");
+    private Button btnCenter = new Button("Показать офис");
     private Button btnBuildLocation;
     private LMap map;
     private LMarker markerZob;
     private LMarker markerGreek;
-    public MapView() {
 
+
+    public MapView() {
         this.setPadding(false);
         this.addClassNames("body");
         this.initMapComponents();
@@ -51,7 +58,7 @@ public class MapView extends VerticalLayout {
         hlButtonContainer.setJustifyContentMode(JustifyContentMode.BETWEEN);
         hlButtonContainer.setPadding(false);
         hlButtonContainer.add(this.btnLunch, this.btnCenter,
-               this.btnBuildLocation = new Button("Построить маршрут", ev ->
+                this.btnBuildLocation = new Button("Построить маршрут", ev ->
                 {
                     final Icon icoClose = VaadinIcon.CLOSE.create();
                     icoClose.addClassNames("close-icon");
@@ -71,13 +78,12 @@ public class MapView extends VerticalLayout {
         this.btnBuildLocation.addClassNames("btnBuildLocation");
         this.btnCenter.addClassNames("btShowOffice");
         this.btnLunch.addClassNames("btnZoom");
-        this.btnCenter.addClickListener(e-> map.centerAndZoom(new LPoint(44.044150, 42.854870), new LPoint(44.044150, 42.854870)));
+        this.btnCenter.addClickListener(e -> map.centerAndZoom(new LPoint(44.044150, 42.854870), new LPoint(44.044150, 42.854870)));
         this.add(this.map, hlButtonContainer);
         this.setSizeFull();
     }
 
-    private void btnLunchClick(final ClickEvent<Button> event)
-    {
+    private void btnLunchClick(final ClickEvent<Button> event) {
         this.viewLunch = !this.viewLunch;
 
         final List<LComponent> normalComponents = Arrays.asList(this.markerZob);
@@ -90,8 +96,8 @@ public class MapView extends VerticalLayout {
 
         this.btnLunch.setText(this.viewLunch ? "Показать офис" : "Вернуться");
     }
-    private void initMapComponents()
-    {
+
+    private void initMapComponents() {
         this.markerZob = new LMarker(44.044150, 42.854870, "ZoB");
         this.markerZob.setPopup("ЦИГАНЛАР office station");
 
@@ -117,9 +123,9 @@ public class MapView extends VerticalLayout {
                 this.markerZob);
 
         List<MapJSUtil.Coordinate> coordinates = new ArrayList<>();
-        for(double i = 0; i < 10; i++) {
+        for (double i = 0; i < 10; i++) {
             MapJSUtil.Coordinate coordinate = new MapJSUtil.Coordinate();
-            coordinate.latitude = 44.0 + (i/10);
+            coordinate.latitude = 44.0 + (i / 10);
             coordinate.longitude = 42.8;
             coordinates.add(coordinate);
         }

@@ -1,6 +1,7 @@
 package com.example.demo.backend.views;
 
-import com.vaadin.flow.component.UI;
+import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
+import com.example.demo.component.view.MapView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
@@ -9,7 +10,10 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class HeaderView extends HorizontalLayout {
 
-    public HeaderView() {
+    private final AuthenticatedUser authenticatedUser;
+
+    public HeaderView(AuthenticatedUser authenticatedUser) {
+        this.authenticatedUser = authenticatedUser;
 
         screen();
     }
@@ -22,17 +26,27 @@ public class HeaderView extends HorizontalLayout {
             authButton.getUI().ifPresent(ui -> ui.navigate("/auth"));
         });
 
+//        if (authenticatedUser.get().isPresent()) {
+//            mapView.btnBuildLocation.setVisible(true);
+//            mapView.btnCenter.setVisible(true);
+//            mapView.btnLunch.setVisible(true);
+//            authButton.setVisible(false);
+//        }else {
+//            mapView.btnBuildLocation.setVisible(false);
+//            mapView.btnCenter.setVisible(false);
+//            mapView.btnLunch.setVisible(false);
+//            authButton.setVisible(true);
+//        }
+
 
         this.addClassNames("view-header");
         this.add(createLogo(), authButton);
     }
 
-    private static Div createLogo() {
+    public Div createLogo() {
         Div container = new Div();
-        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/DGmCv8p/CTS-Logo.png", "My Alt Image"));
+        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/jW0XRgf/gpsLOGO.png", "My Alt Image"));
         refresh.addClassNames("logo");
-//        refresh.addClassNames("view-title");
-//        container.addClassNames("view-title-container");
         container.add(refresh);
         return container;
     }
