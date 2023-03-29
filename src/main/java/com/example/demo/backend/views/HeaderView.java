@@ -14,8 +14,21 @@ public class HeaderView extends HorizontalLayout {
     public HeaderView(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
         screen();
-
+      //  test();
     }
+
+//    public void test() {
+//        Button testButton = new Button("testButton");
+//        testButton.addClassNames("testButton");
+//
+//        testButton.addClickListener(event -> {
+//            testButton.getUI().ifPresent(ui ->
+//                    ui.navigate("/create-user"));
+//        });
+//
+//        this.add(testButton);
+//    }
+
 
     public void screen() {
         Button authButton = new Button("Вход  систему");

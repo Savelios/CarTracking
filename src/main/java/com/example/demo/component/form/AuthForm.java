@@ -18,33 +18,27 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Авторизация")
 @Route(value = "auth", layout = ContentView.class)
 public class AuthForm extends FormLayout implements BeforeEnterObserver {
-
-
     private final TextField loginTF;
     private final PasswordField passwordField;
     private final Button enterButton;
     private final AuthViewModel state = new AuthViewModel();
     private final AccountServiceImpl accountService;
     private final AuthenticatedUser authenticatedUser;
-
-    private final Label label;
-
+    //private final Label label;
     public AuthForm(AccountServiceImpl accountService, AuthenticatedUser authenticatedUser) {
 
         this.accountService = accountService;
         this.authenticatedUser = authenticatedUser;
+
         HeaderView headerView= new HeaderView(authenticatedUser);
 
         this.loginTF = createLoginField();
         this.passwordField = createPasswordField();
         this.enterButton = createEnterButton();
-        this.setWidth(String.valueOf(false));
-        this.label = createLabel();
-
-        this.setResponsiveSteps(
-                new ResponsiveStep("0", 1)
-        );
-
+      //  this.setWidth(String.valueOf(false));
+       // this.label = createLabel();
+//        this.setResponsiveSteps(new ResponsiveStep("0", 1)
+//        );
 
         enterButton.addClickListener(event -> {
             if (authenticatedUser.get().isPresent()) {
@@ -55,24 +49,19 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
             }
         });
 
-
         enterButton.addClassNames("enter-button");
         loginTF.addClassNames("login-txtBox");
         passwordField.addClassNames("password-txtBox");
-
         addClassNames("authorization-view");
 
-        addFormItem(this.loginTF, "Введите ваш логин");
-        addFormItem(this.passwordField, "Введите ваш пароль");
+        loginTF.setLabel("Введите логин:");
+        passwordField.setLabel("Введите пароль:");
 
-
-        add(enterButton);
+        add(loginTF, passwordField, enterButton);
 
         //addFormItem(this.label, "Авторизованный пользователь");
         //add(label);
-
     }
-
     private TextField createLoginField() {
         if (this.loginTF != null)
             return this.loginTF;
@@ -88,7 +77,6 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         });
         return login;
     }
-
     private PasswordField createPasswordField() {
         if (this.passwordField != null)
             return this.passwordField;
@@ -102,7 +90,6 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         });
         return password;
     }
-
     private Button createEnterButton() {
         if (this.enterButton != null)
             return this.enterButton;
@@ -113,12 +100,10 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         });
         return button;
     }
-
     private Label createLabel() {
         Label label = new Label();
         return label;
     }
-
     private void authenticate() {
         try {
             accountService.authenticate(state.login, state.password);
@@ -127,16 +112,14 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
             Notification.show(e.getMessage()).open();
         }
     }
-
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
         if (authenticatedUser.get().isPresent()) {
 
             String username = authenticatedUser.get().toString();
-            this.label.setText("Вы авторизованы как " + username);
+          //  this.label.setText("Вы авторизованы как " + username);
         }
     }
-
     private static class AuthViewModel {
         String login = "";
         String password = "";

@@ -11,10 +11,12 @@ import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 import jakarta.annotation.security.RolesAllowed;
 @PageTitle("Создание пользователя")
 @Route(value = "create-user", layout = ContentView.class)
-@RolesAllowed("USER")
+//@RolesAllowed("ROLE_USER")
+@AnonymousAllowed
 public class CreateUserForm extends FormLayout {
     private final TextField usernameField;
     private final PasswordField passwordField;

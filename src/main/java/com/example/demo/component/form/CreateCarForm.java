@@ -8,11 +8,13 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 import jakarta.annotation.security.RolesAllowed;
 
 @PageTitle("Создание автомобиля")
 @Route(value = "create-car", layout = ContentView.class)
-@RolesAllowed("ROLE_USER")
+//@RolesAllowed("ROLE_USER")
+@AnonymousAllowed
 public class CreateCarForm extends FormLayout {
     private final TextField brandField;
     private final TextField modelField;
@@ -33,6 +35,9 @@ public class CreateCarForm extends FormLayout {
         addFormItem(this.registrationNumberField, "Введите регистрационный номер автомобиля");
         this.addClassNames("car-view");
 
+        brandField.addClassNames("brandField");
+        modelField.addClassNames("modelField");
+        registrationNumberField.addClassNames("registrationNumberField");
         createButton.addClassNames("enter-button");
         add(createButton);
     }
@@ -42,7 +47,7 @@ public class CreateCarForm extends FormLayout {
             return this.modelField;
 
         TextField model = new TextField();
-        model.setPlaceholder("Модель автомобиля");
+        model.setPlaceholder("Модель");
         model.setMaxLength(10);
         model.addValueChangeListener((event) -> {
             if (event.getValue() == null) {
@@ -59,7 +64,7 @@ public class CreateCarForm extends FormLayout {
             return this.brandField;
 
         TextField brand = new TextField();
-        brand.setPlaceholder("Бренд автомобиля");
+        brand.setPlaceholder("Марка");
         brand.setMaxLength(10);
         brand.addValueChangeListener((event) -> {
             if (event.getValue() == null) {

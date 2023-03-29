@@ -1,9 +1,9 @@
 .car-view {
     background-color: aliceblue;
     width: 30%;
-    height: 95%;
+    height: 85%;
     border-radius: 10px;
-    padding: 15px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,4 +22,23 @@
 .enter-button:hover {
     background-color: rgba(42, 126, 182, 0.918);
     cursor: pointer;
+}
+
+.brandField {
+    background-color: rgb(233, 233, 233);
+    color: rgba(56, 56, 56, 0.918);
+    border-radius: 5px;
+}
+
+.modelField {
+    background-color: rgb(233, 233, 233);
+    color: rgba(56, 56, 56, 0.918);
+    border-radius: 5px;
+}
+
+.registrationNumberField {
+    background-color: rgb(233, 233, 233);
+    color: rgba(56, 56, 56, 0.918);
+    border-radius: 5px;
+    margin-bottom: 30%;
 }

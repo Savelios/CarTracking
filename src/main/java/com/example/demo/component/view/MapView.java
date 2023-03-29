@@ -8,12 +8,14 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import jakarta.annotation.security.RolesAllowed;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 @Route(value = "/map")
+//@RolesAllowed("ROLE_USER")
 @AnonymousAllowed
 public class MapView extends VerticalLayout {
     private boolean viewLunch = false;
