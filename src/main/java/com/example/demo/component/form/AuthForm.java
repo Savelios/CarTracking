@@ -25,7 +25,6 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
     private final Button enterButton;
     private final AuthViewModel state = new AuthViewModel();
     private final AccountServiceImpl accountService;
-
     private final AuthenticatedUser authenticatedUser;
 
     private final Label label;
@@ -55,18 +54,18 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         enterButton.addClassNames("enter-button");
         loginTF.addClassNames("login-txtBox");
         passwordField.addClassNames("password-txtBox");
+
         addClassNames("authorization-view");
-        addFormItem(this.loginTF, "Введите ваш username");
+
+        addFormItem(this.loginTF, "Введите ваш логин");
         addFormItem(this.passwordField, "Введите ваш пароль");
+
 
         add(enterButton);
 
-        // addFormItem(this.label, "Авторизованный пользователь");
+        //addFormItem(this.label, "Авторизованный пользователь");
+        //add(label);
 
-//        add(label);
-
-        ProgressBar progressBar = new ProgressBar();
-        progressBar.setClassName("custom-progress-bar");
     }
 
     private TextField createLoginField() {
@@ -74,7 +73,7 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
             return this.loginTF;
 
         TextField login = new TextField();
-        login.setPlaceholder("Username");
+        login.setPlaceholder("Логин");
         //login.setPattern("^(?=.{5,32}$)[^@]*@[^@]*$");
         login.addValueChangeListener((event) -> {
             if (event.getValue() == null) {

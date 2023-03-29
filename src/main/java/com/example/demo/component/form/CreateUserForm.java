@@ -38,11 +38,17 @@ public class CreateUserForm extends FormLayout {
         this.createButton = createButton();
 
         this.addClassNames("user-view");
-        addFormItem(this.usernameField, "Введите username");
+        addFormItem(this.usernameField, "Введите логин");
         addFormItem(this.passwordField, "Введите пароль");
-        addFormItem(this.emailField, "Введите email");
+        addFormItem(this.emailField, "Введите почту");
         addFormItem(this.phoneField, "Введите номер телефона");
         addFormItem(this.selectRoles, "Выберите права доступа:");
+        this.usernameField.addClassNames("username-txtbox");
+        this.passwordField.addClassNames("password-txtbox");
+        this.emailField.addClassNames("email-txtbox");
+        this.phoneField.addClassNames("phone-txtbox");
+        this.selectRoles.addClassNames("roles-box");
+        this.createButton.addClassNames("create-button");
         add(this.createButton);
     }
     private Select<Roles> createSelect() {
@@ -65,7 +71,7 @@ public class CreateUserForm extends FormLayout {
             return this.usernameField;
 
         TextField username = new TextField();
-        username.setPlaceholder("Username");
+        username.setPlaceholder("Логин");
         username.setMaxLength(10);
         username.addValueChangeListener((event) -> {
             if (event.getValue() == null) {
@@ -80,7 +86,7 @@ public class CreateUserForm extends FormLayout {
             return this.passwordField;
 
         PasswordField password = new PasswordField();
-        password.setPlaceholder("Password");
+        password.setPlaceholder("Пароль");
         password.setMaxLength(32);
         password.addValueChangeListener((event) -> {
             if (event.getValue() == null) {
@@ -96,7 +102,7 @@ public class CreateUserForm extends FormLayout {
             return this.emailField;
 
         TextField email = new TextField();
-        email.setPlaceholder("Email");
+        email.setPlaceholder("Почта");
         email.addValueChangeListener((event) -> {
             if (event.getValue() == null) {
                 return;
@@ -111,7 +117,7 @@ public class CreateUserForm extends FormLayout {
             return this.phoneField;
 
         TextField phone = new TextField();
-        phone.setPlaceholder("Phone");
+        phone.setPlaceholder("Телефон");
         phone.addValueChangeListener((event) -> {
             if (event.getValue() == null) {
                 return;

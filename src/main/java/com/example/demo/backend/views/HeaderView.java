@@ -16,6 +16,7 @@ public class HeaderView extends HorizontalLayout {
     public HeaderView(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
         screen();
+
     }
 
     public void screen() {
@@ -37,15 +38,13 @@ public class HeaderView extends HorizontalLayout {
 //            mapView.btnLunch.setVisible(false);
 //            authButton.setVisible(true);
 //        }
-
-
         this.addClassNames("view-header");
         this.add(createLogo(), authButton);
     }
 
     public Div createLogo() {
         Div container = new Div();
-        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/wh3LsF6/gpsLOGO.png", "My Alt Image"));
+        Anchor refresh = new Anchor("/", new Image("https://i.ibb.co/c112R87/gps-LOGOBlue.png", "My Alt Image"));
         refresh.addClassNames("logo");
         container.add(refresh);
         return container;

@@ -1,17 +1,17 @@
 .view-header {
+  top: 0;
   background-color: rgb(43, 43, 43);
   z-index: 2;
-  top: 0;
   left: 0;
   width: 100%;
 }
 .auth-button {
   margin: 26px 20px 10px auto;
-  background-color: rgb(42, 182, 84, 0.918);
+  background-color: rgba(37, 109, 156, 0.918);
   color: aliceblue;
 }
 .auth-button:hover {
-  background-color: rgb(49, 206, 96);
+        background-color: rgba(42, 126, 182, 0.918);
   cursor: pointer;
 }
 
