@@ -7,9 +7,10 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import jakarta.annotation.security.RolesAllowed;
 
 @Route("/search-car")
-@AnonymousAllowed
+@RolesAllowed("USER")
 public class SearchCarView extends FormLayout {
     private final TextField searchByRegistrationNumberField;
     private final Button searchButton;

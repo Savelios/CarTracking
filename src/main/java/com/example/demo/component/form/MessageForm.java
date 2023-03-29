@@ -9,11 +9,11 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.auth.AnonymousAllowed;
+import jakarta.annotation.security.RolesAllowed;
 
 import java.util.Arrays;
 
-@AnonymousAllowed
+@RolesAllowed("ROLE_USER")
 @Route(value = "message", layout = ContentView.class)
 public class MessageForm extends Div {
     private final MessageViewModel state = new MessageViewModel();
@@ -22,7 +22,10 @@ public class MessageForm extends Div {
     }
     public void screen() {
 
-        ComboBox<String> comboBox = new ComboBox<>("Тип сообщения");
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.setLabel("Тип сообщения");
+        comboBox.addClassNames("login-txtBox-message");
+
         comboBox.setAllowCustomValue(true);
         comboBox.setItems(Arrays.stream(MessageType.values()).map(MessageType::getRusName).toList());
 
@@ -33,7 +36,7 @@ public class MessageForm extends Div {
         textArea.setWidthFull();
         textArea.setLabel("Описание");
         textArea.setMaxLength(charLimit);
-        textArea.addClassNames("enter-button");
+        textArea.addClassNames("password-txtBox-message");
         textArea.setValueChangeMode(ValueChangeMode.EAGER);
         String loremIpsum = textArea.getValue();
         textArea.addValueChangeListener(e -> {
@@ -46,6 +49,7 @@ public class MessageForm extends Div {
 //            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
         });
 
+        enterButton.addClassNames("enter-button-message");
         addClassNames("message-view");
         add(comboBox, textArea, enterButton);
     }

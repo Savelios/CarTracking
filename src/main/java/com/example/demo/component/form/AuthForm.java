@@ -3,6 +3,7 @@ package com.example.demo.component.form;
 import com.example.demo.backend.service.Impl.AccountServiceImpl;
 import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.backend.views.ContentView;
+import com.example.demo.backend.views.HeaderView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Label;
@@ -30,8 +31,10 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
     private final Label label;
 
     public AuthForm(AccountServiceImpl accountService, AuthenticatedUser authenticatedUser) {
+
         this.accountService = accountService;
         this.authenticatedUser = authenticatedUser;
+        HeaderView headerView= new HeaderView(authenticatedUser);
 
         this.loginTF = createLoginField();
         this.passwordField = createPasswordField();
@@ -48,8 +51,11 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
             if (authenticatedUser.get().isPresent()) {
                 enterButton.getUI().ifPresent(ui ->
                         ui.navigate("map"));
+//                headerView.authButton.setText("Выйти");
+//                headerView.authButton.addClickListener(event1 -> {authenticatedUser.logout();});
             }
         });
+
 
         enterButton.addClassNames("enter-button");
         loginTF.addClassNames("login-txtBox");
