@@ -1,20 +1,19 @@
 package com.example.demo.component.form;
 
 import com.example.demo.backend.service.servant.CarServant;
-import com.example.demo.backend.viewModel.CarViewModel;
 import com.example.demo.backend.views.ContentView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import jakarta.annotation.security.RolesAllowed;
 
 @PageTitle("Создание автомобиля")
 @Route(value = "create-car", layout = ContentView.class)
-@AnonymousAllowed
+@RolesAllowed("ROLE_USER")
 public class CreateCarForm extends FormLayout {
     private final TextField brandField;
     private final TextField modelField;

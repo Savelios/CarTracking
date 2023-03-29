@@ -12,6 +12,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 public class HeaderView extends HorizontalLayout {
 
     private final AuthenticatedUser authenticatedUser;
+    public Button authButton = new Button();
 
     public HeaderView(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
@@ -19,24 +20,13 @@ public class HeaderView extends HorizontalLayout {
     }
 
     public void screen() {
-        Button authButton = new Button("Вход  систему");
+        authButton.setText("Вход в систему");
+
         authButton.addClassNames("auth-button");
 
         authButton.addClickListener(event -> {
             authButton.getUI().ifPresent(ui -> ui.navigate("/auth"));
         });
-
-//        if (authenticatedUser.get().isPresent()) {
-//            mapView.btnBuildLocation.setVisible(true);
-//            mapView.btnCenter.setVisible(true);
-//            mapView.btnLunch.setVisible(true);
-//            authButton.setVisible(false);
-//        }else {
-//            mapView.btnBuildLocation.setVisible(false);
-//            mapView.btnCenter.setVisible(false);
-//            mapView.btnLunch.setVisible(false);
-//            authButton.setVisible(true);
-//        }
 
 
         this.addClassNames("view-header");

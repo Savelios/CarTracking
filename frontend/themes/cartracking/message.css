@@ -10,11 +10,41 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 8px #00000064;
-
+    background-color: rgb(43, 43, 43);
+    color: #FFFFFF;
+    box-shadow: 0px 1px 8px #09ff0017;
 }
 
-.enter-button{
-    width: 40%;
+.enter-button-message{
+    width: 50%;
+    background-color: rgb(42, 182, 84, 0.918);
+    color: aliceblue;
 }
+.enter-button-message:hover {
+    background-color: rgb(49, 206, 96);
+    cursor: pointer;
+}
+
+.login-txtBox-message{
+    background-color: rgb(59, 59, 59);
+    color: rgba(255, 255, 255, 0.918);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-color: rgba(0, 151, 8, 0.39);
+
+}
+.login-txtBox-message:placeholder {
+    color: rgb(42, 182, 84, 0.918);
+}
+
+.password-txtBox-message{
+    background-color: rgb(59, 59, 59);
+    color: rgba(255, 255, 255, 0.918);
+    border-radius: 5px;
+    border-color: rgba(0, 151, 8, 0.39);
+}
+.password-txtBox-message::placeholder {
+    color: rgb(42, 182, 84, 0.918);
+}
+
+.login-txtBox-message::label

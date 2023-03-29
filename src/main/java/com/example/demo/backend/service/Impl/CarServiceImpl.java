@@ -1,7 +1,6 @@
 package com.example.demo.backend.service.Impl;
 
 import com.example.demo.backend.domain.Car;
-import com.example.demo.backend.domain.User;
 import com.example.demo.backend.repository.CarRepository;
 import com.example.demo.backend.service.CarService;
 import com.example.demo.backend.viewModel.CarViewModel;

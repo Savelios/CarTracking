@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 public class CarServant {
     private final AuthenticatedUser user;
     private final CarRepository repository;
+
     public CarServant(AuthenticatedUser user, CarRepository repository) {
         this.user = user;
         this.repository = repository;
     }
+
     public void searchCar(String registrationNumber) throws Exception {
         var carOptional = repository.searchByRegistrationNumber(registrationNumber);
 
@@ -21,6 +23,7 @@ public class CarServant {
         if (carOptional.isEmpty())
             throw new Exception("Такого автомобиля нет!");
     }
+
     public void createCar(String registrationNumber, String brand, String model) throws Exception {
         if (brand == null || brand.isEmpty()) {
             throw new Exception("Марка не может быть пустой!");
@@ -48,6 +51,7 @@ public class CarServant {
                 .build();
         repository.save(car);
     }
+
     public void checkRegistrationNumberFormat(String registrationNumber) throws Exception {
         String regex = "^([АВЕКМНОРСТУХавекмнорстухABEKMHOPCTYXabekmhopctyx]\\s*\\d{3}\\s*[АВЕКМНОРСТУХавекмнорстухABEKMHOPCTYXabekmhopctyx]{2}\\s*\\d{2,3})|([АВЕКМНОРСТУХавекмнорстухABEKMHOPCTYXabekmhopctyx]{2}\\s*\\d{3}\\s*\\d{2,3})$";
         if (!registrationNumber.matches(regex)) {
