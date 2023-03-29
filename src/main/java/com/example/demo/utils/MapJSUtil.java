@@ -1,13 +1,8 @@
 package com.example.demo.utils;
 
-import com.vaadin.flow.dom.Element;
-import org.apache.logging.log4j.util.Strings;
-import software.xdev.vaadin.maps.leaflet.flow.LMap;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class MapJSUtil {
     private static final String VARIABLE_NAME  = "<VARIABLE_NAME>";

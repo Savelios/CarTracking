@@ -1,12 +1,10 @@
 package com.example.demo.backend.views;
 
 import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
-import com.example.demo.component.view.MapView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class HeaderView extends HorizontalLayout {

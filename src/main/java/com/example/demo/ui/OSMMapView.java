@@ -3,7 +3,6 @@ package com.example.demo.ui;
 import com.example.demo.utils.MapJSUtil;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
-import org.apache.logging.log4j.util.Strings;
 
 import java.util.Collection;
 
