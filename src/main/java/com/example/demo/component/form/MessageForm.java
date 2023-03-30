@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 
 @Route(value = "message", layout = ContentView.class)
-//@RolesAllowed("ROLE_USER")
+//@RolesAllowed("ROLE_ADMIN")
 @AnonymousAllowed
 public class MessageForm extends Div {
     private final MessageViewModel state = new MessageViewModel();

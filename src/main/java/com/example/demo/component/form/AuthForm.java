@@ -14,6 +14,7 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.Version;
 
 @PageTitle("Авторизация")
 @Route(value = "auth", layout = ContentView.class)
@@ -43,7 +44,9 @@ public class AuthForm extends FormLayout implements BeforeEnterObserver {
         enterButton.addClickListener(event -> {
             if (authenticatedUser.get().isPresent()) {
                 enterButton.getUI().ifPresent(ui ->
+
                         ui.navigate("map"));
+
 //                headerView.authButton.setText("Выйти");
 //                headerView.authButton.addClickListener(event1 -> {authenticatedUser.logout();});
             }

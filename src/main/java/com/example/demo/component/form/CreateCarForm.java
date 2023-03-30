@@ -13,7 +13,7 @@ import jakarta.annotation.security.RolesAllowed;
 
 @PageTitle("Создание автомобиля")
 @Route(value = "create-car", layout = ContentView.class)
-//@RolesAllowed("ROLE_USER")
+//@RolesAllowed("ROLE_ADMIN")
 @AnonymousAllowed
 public class CreateCarForm extends FormLayout {
     private final TextField brandField;

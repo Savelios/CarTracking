@@ -24,7 +24,7 @@ public class UsersDetailServiceImpl implements UserDetailsService {
         return userOpt.map(user -> new User(
                 user.getUsername(),
                 user.getPassword(),
-                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+                List.of(new SimpleGrantedAuthority(user.getRole().getRole()))
         )).orElseThrow(() -> new UsernameNotFoundException("No user present with username: " + username));
     }
 }

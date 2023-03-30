@@ -7,9 +7,7 @@ import com.vaadin.flow.router.RouterLayout;
 
 @ParentLayout(MainLayout.class)
 public class ContentView extends Div implements RouterLayout {
-
     public ContentView() {
-
         this.addClassNames("content-view");
     }
 }

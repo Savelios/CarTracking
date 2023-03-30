@@ -19,19 +19,19 @@ public class UserServant {
     public void createUser(String username, String password, String email, String phone, Roles role) throws Exception {
 
         if (username == null || username.isEmpty()) {
-            throw new Exception("Поле username не может быть пустым!");
+            throw new Exception("Поле для логина не может быть пустым!");
         }
         var userOptional = userRepository.findFirstByUsername(username);
         if (userOptional.isPresent()) {
             throw new Exception("Такой пользователь уже существует! Введите другой username.");
         }
         if (password == null || password.isEmpty()) {
-            throw new Exception("Поле password не может быть пустым!");
+            throw new Exception("Поле для пароля не может быть пустым!");
         }
         checkPasswordFormat(password);
 
         if (email == null || email.isEmpty()) {
-            throw new Exception("Поле email не может быть пустым!");
+            throw new Exception("Поле для почты не может быть пустой!");
         }
         var emailOptional = userRepository.findFirstByEmail(email);
         if (emailOptional.isPresent()) {

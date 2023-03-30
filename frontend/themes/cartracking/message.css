@@ -47,4 +47,6 @@
     color: rgb(42, 182, 84, 0.918);
 }
 
-.login-txtBox-message::label
+.login-txtBox-message::label{
+    
+}

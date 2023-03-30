@@ -15,7 +15,7 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 import jakarta.annotation.security.RolesAllowed;
 @PageTitle("Создание пользователя")
 @Route(value = "create-user", layout = ContentView.class)
-//@RolesAllowed("ROLE_USER")
+//@RolesAllowed("ROLE_ADMIN")
 @AnonymousAllowed
 public class CreateUserForm extends FormLayout {
     private final TextField usernameField;
