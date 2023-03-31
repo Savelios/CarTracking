@@ -44,10 +44,10 @@ public class CreateUserForm extends FormLayout {
         addFormItem(this.emailField, "Введите почту");
         addFormItem(this.phoneField, "Введите номер телефона");
         addFormItem(this.selectRoles, "Выберите права доступа:");
-        this.usernameField.addClassNames("username-txtbox");
-        this.passwordField.addClassNames("password-txtbox");
-        this.emailField.addClassNames("email-txtbox");
-        this.phoneField.addClassNames("phone-txtbox");
+        this.usernameField.addClassNames("username-txtBox");
+        this.passwordField.addClassNames("password-txtBox");
+        this.emailField.addClassNames("email-txtBox");
+        this.phoneField.addClassNames("phone-txtBox");
         this.selectRoles.addClassNames("roles-box");
         this.createButton.addClassNames("create-button");
         add(this.createButton);

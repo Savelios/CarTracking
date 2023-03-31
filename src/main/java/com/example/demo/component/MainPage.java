@@ -23,6 +23,7 @@ public class MainPage extends SplitLayout {
 
         sideBarView = new SideBarView();
         sideBarView.setMinWidth("1%");
+        sideBarView.setMaxWidth("32%");
 
         this.addToPrimary(sideBarView);
         this.addToSecondary(mapView);

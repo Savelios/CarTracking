@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MainLayout extends VerticalLayout implements RouterLayout {
 
     private final HeaderView headerView;
-    private final ContentView contentView;
+    //private final ContentView contentView;
     private final AuthenticatedUser authenticatedUser;
 
     private final Label label = new Label("" +
@@ -29,12 +29,12 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
     public MainLayout(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
         this.headerView = new HeaderView(this.authenticatedUser);
-        this.contentView = new ContentView();
+        //this.contentView = new ContentView();
         this.addClassNames("main-view");
         this.label.addClassNames("content-label");
         setPadding(false);
 
-        add(headerView, contentView);
+        add(headerView);
     }
 
 }
