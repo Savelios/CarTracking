@@ -12,6 +12,9 @@
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
+    animation: fadeIn;
+    animation-duration: 0.3s;
+    top: 12%;
 }
 
 
