@@ -38,19 +38,20 @@ public class CreateUserForm extends FormLayout {
 
         this.createButton = createButton();
 
-        this.addClassNames("user-view");
         addFormItem(this.usernameField, "Введите логин");
         addFormItem(this.passwordField, "Введите пароль");
         addFormItem(this.emailField, "Введите почту");
         addFormItem(this.phoneField, "Введите номер телефона");
         addFormItem(this.selectRoles, "Выберите права доступа:");
+        addClassNames("user-view");
+        add(this.createButton);
         this.usernameField.addClassNames("username-txtBox");
         this.passwordField.addClassNames("password-txtBox");
         this.emailField.addClassNames("email-txtBox");
         this.phoneField.addClassNames("phone-txtBox");
         this.selectRoles.addClassNames("roles-box");
-        this.createButton.addClassNames("create-button");
-        add(this.createButton);
+        this.createButton.addClassNames("createUser-btn");
+
     }
     private Select<Roles> createSelect() {
         if (this.selectRoles != null)
