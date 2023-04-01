@@ -1,0 +1,47 @@
+.usersInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 400px;
+    background-color: blueviolet;
+    padding: 10px 15px;
+  }
+
+.nameLabel {
+    color: black;
+}
+.showNameLabel {
+    color: black;
+}
+
+.surnameLabel {
+    color: black;
+
+}
+.showSurnameLabel {
+    color: black;
+
+}
+
+.carLabel {
+    color: black;
+}
+.showCarLabel {
+    color: black;
+}
+
+.registrationNumberLabel {
+    color: black;
+}
+.showRegistrationNumberLabel {
+    color: black;
+}
+
+.j {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.usersList {
+    background-color: blue;
+}
