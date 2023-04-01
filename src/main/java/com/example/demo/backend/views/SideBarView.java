@@ -21,10 +21,12 @@ public class SideBarView extends HorizontalLayout {
     public  Div usersInfoContainer;
     public  Div carsInfoContainer;
     public Div tracksInfoContainer;
+
     public SideBarView() {
         screen();
     }
     public void screen() {
+        Div btnsDiv = new Div();
         Button showButton = new Button("Показать");
         showButton.addClickListener(event -> {
 //            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
@@ -35,15 +37,17 @@ public class SideBarView extends HorizontalLayout {
         });
         showButton.addClassNames("show-button");
         createButton.addClassNames("create-button");
+        btnsDiv.addClassNames("btnsDiv");
+        btnsDiv.add(showButton, createButton);
 
         usersInfoContainer = new Div();
-        Label nameLabel = new Label("Имя");
+        Label nameLabel = new Label("Имя:");
         Label showNameLabel = new Label("getName");
-        Label surnameLabel = new Label("Фамилия");
+        Label surnameLabel = new Label("Фамилия:");
         Label showSurnameLabel = new Label("GetLastname");
-        Label carLabel = new Label("Транспорт");
+        Label carLabel = new Label("Транспорт:");
         Label showCarLabel = new Label("GetCar");
-        Label registrationNumberLabel = new Label("ГОС-НОМЕР");
+        Label registrationNumberLabel = new Label("ГОС-НОМЕР:");
         Label showRegistrationNumberLabel = new Label("GetRegistrationNumber");
 
         nameLabel.addClassNames("nameLabel", "j");
@@ -62,11 +66,11 @@ public class SideBarView extends HorizontalLayout {
                 carLabel,showCarLabel,
                 registrationNumberLabel,showRegistrationNumberLabel);
 
-        ListBox usersList = new ListBox();
-        usersList.addClassNames("usersList");
-        usersList.add(usersInfoContainer);
+        ListBox usersListBox = new ListBox();
+        usersListBox.addClassNames("usersList");
+        usersListBox.add(usersInfoContainer);
 
         this.addClassNames("sideBar");
-        this.add(showButton, createButton, usersList);
+        this.add(btnsDiv, usersListBox);
     }
 }

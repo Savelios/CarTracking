@@ -1,47 +1,46 @@
 .usersInfoContainer {
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 400px;
-    background-color: blueviolet;
+    width: 345px;
+    height: 445px;
     padding: 10px 15px;
+    background-color: rgb(43, 43, 43);
+    border-radius: 8px;
+    box-shadow: 20px #3f3785e8;
+    margin-left: 5px;
   }
 
 .nameLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 }
 .showNameLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 }
 
 .surnameLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 
 }
 .showSurnameLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 
 }
 
 .carLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 }
 .showCarLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 }
 
 .registrationNumberLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 }
 .showRegistrationNumberLabel {
-    color: black;
+    color: rgb(211, 211, 211);
 }
 
 .j {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-}
-
-.usersList {
-    background-color: blue;
 }

@@ -24,13 +24,25 @@
 }
 
 .brLine {
-width: 10px;
-margin: 0 15% 5px 0;
+  width: 10px;
+  margin: 0 10% 10px 0;
+  position: relative;
+}
+
+.firstBrDot {
+  width: 15px;
+  height: 15px;
+  margin: 15px 0 5px 12px;
+}
+.secondBrDot {
+  width: 15px;
+  height: 15px;
+  margin: 15px 0 5px 12px;
 }
 
 .btnsContainer {
   display: flex;
-  margin: 23px 0 10px 10%;
+  margin: 23px 0 10px 8%;
 }
 
 .usersBtn {
