@@ -9,34 +9,37 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class HeaderView extends HorizontalLayout {
 
+//    private final Div btnContainer = new Div();
+//    private final Button usersBtn = new Button();
+//    private final Button carsBtn = new Button();
+//    private final Button tracksBtn = new Button();
     private final AuthenticatedUser authenticatedUser;
 
     public HeaderView(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
         screen();
-      //  test();
     }
-
-//    public void test() {
-//        Button testButton = new Button("testButton");
-//        testButton.addClassNames("testButton");
-//
-//        testButton.addClickListener(event -> {
-//            testButton.getUI().ifPresent(ui ->
-//                    ui.navigate("/create-user"));
-//        });
-//
-//        this.add(testButton);
-//    }
-
 
     public void screen() {
         Button authButton = new Button("Вход  систему");
         authButton.addClassNames("auth-button");
-
         authButton.addClickListener(event -> {
             authButton.getUI().ifPresent(ui -> ui.navigate("/auth"));
         });
+
+        Image brLine = new Image();
+        brLine.setSrc("https://i.ibb.co/7JGwZpX/line.png");
+        brLine.addClassNames("brLine");
+        Div btnsContainer = new Div();
+        Button usersBtn = new Button("Водители");
+        Button carsBtn = new Button("Автомобили");
+        Button tracksBtn = new Button("Треки");
+        btnsContainer.add(brLine, usersBtn, carsBtn, tracksBtn);
+
+        btnsContainer.addClassNames("btnsContainer");
+        usersBtn.addClassNames("usersBtn");
+        carsBtn.addClassNames("carsBtn");
+        tracksBtn.addClassNames("tracksBtn");
 
 //        if (authenticatedUser.get().isPresent()) {
 //            mapView.btnBuildLocation.setVisible(true);
@@ -49,8 +52,9 @@ public class HeaderView extends HorizontalLayout {
 //            mapView.btnLunch.setVisible(false);
 //            authButton.setVisible(true);
 //        }
+
         this.addClassNames("view-header");
-        this.add(createLogo(), authButton);
+        this.add(createLogo(), btnsContainer, authButton);
     }
 
     public Div createLogo() {

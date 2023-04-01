@@ -6,6 +6,7 @@
   width: 100%;
 }
 .auth-button {
+  position: relative;
   margin: 26px 20px 10px auto;
   background-color: rgba(37, 109, 156, 0.918);
   color: aliceblue;
@@ -21,3 +22,43 @@
   width: 70px;
   height: 70px;
 }
+
+.brLine {
+width: 10px;
+margin: 0 15% 5px 0;
+}
+
+.btnsContainer {
+  display: flex;
+  margin: 23px 0 10px 10%;
+}
+
+.usersBtn {
+  background-color: rgba(37, 109, 156, 0.918);
+  color: aliceblue;
+}
+.usersBtn:hover {
+  background-color: rgba(42, 126, 182, 0.918);
+  cursor: pointer;
+}
+
+.carsBtn {
+  margin-left: 15px;
+  background-color: rgba(37, 109, 156, 0.918);
+  color: aliceblue;
+}
+.carsBtn:hover {
+  background-color: rgba(42, 126, 182, 0.918);
+  cursor: pointer;
+}
+
+.tracksBtn {
+  margin-left: 15px;
+  background-color: rgba(37, 109, 156, 0.918);
+  color: aliceblue;
+}
+.tracksBtn:hover {
+  background-color: rgba(42, 126, 182, 0.918);
+  cursor: pointer;
+}
+
