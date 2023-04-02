@@ -4,11 +4,19 @@ import com.example.demo.backend.domain.Car;
 import com.example.demo.backend.repository.CarRepository;
 import com.example.demo.backend.service.CarService;
 import com.example.demo.backend.viewModel.CarViewModel;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+@Service
 public class CarServiceImpl implements CarService {
-    CarRepository carRepository;
+    final CarRepository carRepository;
+
+    public CarServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
     @Override
     public Car create(Car car) {
         carRepository.save(car);

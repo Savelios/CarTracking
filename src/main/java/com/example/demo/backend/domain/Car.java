@@ -10,8 +10,9 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Car extends PersistentObject {
-
     @Column(name = "brand")
     String brand;
     @Column(name = "model")

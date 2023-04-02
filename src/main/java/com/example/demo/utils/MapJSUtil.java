@@ -103,7 +103,24 @@ public class MapJSUtil {
     }
 
     public static class Coordinate {
-        public double latitude;
-        public double longitude;
+        public final double latitude;
+        public final double longitude;
+
+        public Coordinate() {
+            latitude = 0.0;
+            longitude = 0.0;
+        }
+        public Coordinate(double latitude, double longitude) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+        }
+
+        /**
+         * @return
+         */
+        @Override
+        public String toString() {
+            return String.format("[lat = %s, lon = %s]", latitude, longitude);
+        }
     }
 }

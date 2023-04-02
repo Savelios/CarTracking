@@ -3,42 +3,31 @@ package com.example.demo.backend.views;
 import com.example.demo.backend.domain.Car;
 import com.example.demo.backend.repository.CarRepository;
 import com.example.demo.backend.service.CarService;
-import com.example.demo.backend.service.Impl.CarServiceImpl;
-import com.example.demo.backend.service.servant.CarServant;
-import com.example.demo.backend.viewModel.CarViewModel;
-import com.example.demo.models.MessageType;
+import com.example.demo.component.view.CarRoutesView;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
-import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.listbox.ListBox;
-import com.vaadin.flow.component.listbox.MultiSelectListBox;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.select.Select;
-import com.vaadin.flow.component.textfield.TextArea;
-import com.vaadin.flow.data.provider.DataProvider;
-import com.vaadin.flow.data.provider.ListDataProvider;
-import com.vaadin.flow.data.value.ValueChangeMode;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.auth.AnonymousAllowed;
-import jakarta.annotation.security.RolesAllowed;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class SideBarView extends HorizontalLayout {
     public  Div usersInfoContainer;
     public  Div carsInfoContainer;
     public Div tracksInfoContainer;
-    public SideBarView() {
-        screen();
-        usersInfoContainer();
-        carsInfoContainer();
-        tracksInfoContainer();
+
+    public SideBarView(CarRoutesView carRoutesView) {
+        this.add(carRoutesView);
+//        screen();
+//        usersInfoContainer();
+//        carsInfoContainer();
+//        tracksInfoContainer();
     }
     public void screen() {
         Div btnsDiv = new Div();
@@ -128,10 +117,10 @@ public class SideBarView extends HorizontalLayout {
         Select<Car> carSelect = new Select<>();
         carSelect.addClassNames("carSelect");
 
-
         List<Car> carList = new ArrayList<>();
         carSelect.setItems(carList);
-        carSelect.setItemLabelGenerator(car -> car.getBrand() + " " + car.getModel() + " (" + car.getRegistrationNumber() + ")");
+        carSelect.setItemLabelGenerator(car ->
+                String.format("%s %s(%s)",car.getBrand(), car.getModel(), car.getRegistrationNumber()));
 
         DatePicker departureDate = new DatePicker("Начальная дата");
         departureDate.addClassNames("departureDate");

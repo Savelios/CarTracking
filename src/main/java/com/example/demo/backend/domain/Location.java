@@ -15,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Location extends PersistentObject {
     @Column(name = "lat")
-    String lat;
+    double lat;
     @Column(name = "lon")
-    String lon;
+    double lon;
 }

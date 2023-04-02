@@ -1,6 +1,7 @@
 package com.example.demo.ui;
 
 import com.example.demo.utils.MapJSUtil;
+import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 
@@ -25,6 +26,11 @@ public class OSMMapView extends Div {
         this.identifier = identifier;
         this.setId(identifier);
 
+    }
+
+    @Override
+    protected void onAttach(AttachEvent attachEvent) {
+        super.onAttach(attachEvent);
         initializeMap();
     }
 

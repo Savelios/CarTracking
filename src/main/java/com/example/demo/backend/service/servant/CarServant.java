@@ -3,12 +3,16 @@ package com.example.demo.backend.service.servant;
 import com.example.demo.backend.domain.Car;
 import com.example.demo.backend.repository.CarRepository;
 import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
+import com.example.demo.backend.viewModel.CarViewModel;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CarServant {
     private final AuthenticatedUser user;
-    private final CarRepository repository;
+    CarRepository repository;
 
     public CarServant(AuthenticatedUser user, CarRepository repository) {
         this.user = user;
@@ -22,6 +26,19 @@ public class CarServant {
 
         if (carOptional.isEmpty())
             throw new Exception("Такого автомобиля нет!");
+    }
+
+    public List<CarViewModel> getCars(String brand, String model, String registrationNumber){
+        List<Car> carList = repository.findAll();
+        List<CarViewModel> carViewModels = new ArrayList<>();
+        for (Car item : carList) {
+            CarViewModel carViewModel = new CarViewModel();
+            carViewModel.setId(item.getId());
+            carViewModel.setBrand(item.getBrand());
+            carViewModel.setModel(item.getModel());
+            carViewModels.add(carViewModel);
+        }
+        return carViewModels;
     }
 
     public void createCar(String registrationNumber, String brand, String model) throws Exception {
