@@ -1,0 +1,35 @@
+.tracksInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 345px;
+    height: 245px;
+    padding: 10px 15px;
+    background-color: rgb(43, 43, 43);
+    border-radius: 8px;
+    box-shadow: 20px #3f3785e8;
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
+
+.carLabel {
+    color: rgb(211, 211, 211);
+}
+.departureDate {
+    color: rgb(211, 211, 211);
+}
+.departureDate::placeholder {
+    color: rgb(211, 211, 211);
+}
+
+.returnDate {
+    color: rgb(211, 211, 211);
+}
+
+.createTrackBtn {
+    background-color: rgba(37, 109, 156, 0.918);
+    color: aliceblue;
+  }
+  .createTrackBtn:hover {
+    background-color: rgba(42, 126, 182, 0.918);
+    cursor: pointer;
+  }

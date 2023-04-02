@@ -13,7 +13,7 @@ public class HeaderView extends HorizontalLayout {
         screen();
     }
     public void screen() {
-        Button authButton = new Button("Вход  систему");
+        Button authButton = new Button("Вход в систему");
         authButton.addClassNames("auth-button");
 
 
@@ -44,7 +44,7 @@ public class HeaderView extends HorizontalLayout {
         });
 
 
-        if (!authenticatedUser.get().isPresent()) {
+        if (authenticatedUser.get().isPresent()) {
             btnsContainer.setVisible(true);
         } else {
             btnsContainer.setVisible(false);
@@ -52,6 +52,20 @@ public class HeaderView extends HorizontalLayout {
 
         this.addClassNames("view-header");
         this.add(createLogo(), btnsContainer, authButton);
+
+
+        //        UI.getCurrent().getPage()
+//                .executeJs(
+//                        String.format("console.log('parent class ', '%s')",
+//                                mainLayout != null ? mainLayout.getClass() : "'NOT_PRESENT'")
+//                );
+//        if (mainLayout != null) {
+//            UI.getCurrent().getPage()
+//                    .executeJs(
+//                            String.format("console.log('header class ', '%s')", mainLayout.getHeaderView())
+//                    );
+//            mainLayout.getHeaderView().showButtons();
+//        }
     }
     public Div createLogo() {
         Div container = new Div();
@@ -60,4 +74,21 @@ public class HeaderView extends HorizontalLayout {
         container.add(refresh);
         return container;
     }
+
+//        public void showButtons() {
+//
+//        UI.getCurrent().getPage()
+//                .executeJs(
+//                        String.format("console.log('show buttons ', '%s')",
+//                                this.containerBtn.getClassNames().stream().collect(Collectors.joining(" ,"))
+//                        )
+//                );
+//        this.containerBtn.removeClassName("mhidden");
+//        UI.getCurrent().getPage()
+//                .executeJs(
+//                        String.format("console.log('after hidden ', '%s')",
+//                                this.containerBtn.getClassNames().stream().collect(Collectors.joining(" ,"))
+//                        )
+//                );
+//    }
 }

@@ -1,8 +1,8 @@
-.usersInfoContainer {
+.carsInfoContainer {
     display: flex;
     flex-direction: column;
     width: 345px;
-    height: 220px;
+    height: 170px;
     padding: 10px 15px;
     background-color: rgb(43, 43, 43);
     border-radius: 8px;
@@ -10,27 +10,20 @@
     margin-left: 5px;
   }
 
-.nameLabel {
+.brandLabel {
     color: rgb(211, 211, 211);
 }
-.showNameLabel {
+.showBrandLabel {
     color: rgb(211, 211, 211);
 }
 
-.surnameLabel {
-    color: rgb(211, 211, 211);
-
-}
-.showSurnameLabel {
+.modelLabel {
     color: rgb(211, 211, 211);
 
 }
+.showModelLabel {
+    color: rgb(211, 211, 211);
 
-.carLabel {
-    color: rgb(211, 211, 211);
-}
-.showCarLabel {
-    color: rgb(211, 211, 211);
 }
 
 .registrationNumberLabel {
@@ -38,9 +31,4 @@
 }
 .showRegistrationNumberLabel {
     color: rgb(211, 211, 211);
-}
-
-.j {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
 }
