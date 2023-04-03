@@ -26,28 +26,21 @@ public class SideBarView extends HorizontalLayout {
 
     public SideBarView(CarRoutesView carRoutesView) {
         screen();
-        usersInfoContainer();
         carsInfoContainer();
         this.add(carRoutesView);
-      //  tracksInfoContainer();
     }
     public void screen() {
-        Div btnsDiv = new Div();
-        Button showButton = new Button("Показать");
-        showButton.addClickListener(event -> {
-//            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
-        });
-        Button createButton = new Button("Создать");
-        createButton.addClickListener(event -> {
-//            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
-        });
-        showButton.addClassNames("show-button");
-        createButton.addClassNames("create-button");
-        btnsDiv.addClassNames("btnsDiv");
-        btnsDiv.add(showButton, createButton);
-
-        this.addClassNames("sideBar");
-        this.add(btnsDiv);
+//        Div btnsDiv = new Div();
+//        Button createButton = new Button("Создать");
+//        createButton.addClickListener(event -> {
+//           enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
+//        });
+//        createButton.addClassNames("create-button");
+//        btnsDiv.addClassNames("btnsDiv");
+//        btnsDiv.add(createButton);
+//
+//        this.addClassNames("sideBar");
+//        this.add(btnsDiv);
     }
     public void usersInfoContainer() {
         usersInfoContainer = new Div();
@@ -84,6 +77,12 @@ public class SideBarView extends HorizontalLayout {
     }
     public void carsInfoContainer() {
         carsInfoContainer = new Div();
+        Button createButton = new Button("Создать");
+        createButton.addClickListener(event -> {
+//            enterButton.getUI().ifPresent(ui -> ui.navigate("/"));
+        });
+        createButton.addClassNames("create-button");
+
         Label brandLabel = new Label("Марка:");
         Label showBrandLabel = new Label("getBrand");
         Label modelLabel = new Label("Модель:");
@@ -102,7 +101,7 @@ public class SideBarView extends HorizontalLayout {
         carsInfoContainer.add(
                 brandLabel,showBrandLabel,
                 modelLabel,showModelLabel,
-                registrationNumberLabel,showRegistrationNumberLabel);
+                registrationNumberLabel,showRegistrationNumberLabel, createButton);
 
         ListBox carsListBox = new ListBox();
         carsListBox.addClassNames("carsList");
