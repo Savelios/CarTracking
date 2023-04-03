@@ -11,23 +11,25 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.listbox.ListBox;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@UIScope
 public class SideBarView extends HorizontalLayout {
     public  Div usersInfoContainer;
     public  Div carsInfoContainer;
     public Div tracksInfoContainer;
 
     public SideBarView(CarRoutesView carRoutesView) {
+        screen();
+        usersInfoContainer();
+        carsInfoContainer();
         this.add(carRoutesView);
-//        screen();
-//        usersInfoContainer();
-//        carsInfoContainer();
-//        tracksInfoContainer();
+      //  tracksInfoContainer();
     }
     public void screen() {
         Div btnsDiv = new Div();
@@ -105,37 +107,36 @@ public class SideBarView extends HorizontalLayout {
         ListBox carsListBox = new ListBox();
         carsListBox.addClassNames("carsList");
         carsListBox.add(carsInfoContainer);
-
         this.add(carsListBox);
     }
-    public void tracksInfoContainer() {
-        tracksInfoContainer = new Div();
-        tracksInfoContainer.addClassNames("tracksInfoContainer");
-        Label carLabel = new Label("Выберите автомобиль");
-        carLabel.addClassNames("carLabel");
-
-        Select<Car> carSelect = new Select<>();
-        carSelect.addClassNames("carSelect");
-
-        List<Car> carList = new ArrayList<>();
-        carSelect.setItems(carList);
-        carSelect.setItemLabelGenerator(car ->
-                String.format("%s %s(%s)",car.getBrand(), car.getModel(), car.getRegistrationNumber()));
-
-        DatePicker departureDate = new DatePicker("Начальная дата");
-        departureDate.addClassNames("departureDate");
-        DatePicker returnDate = new DatePicker("Финальная дата");
-        returnDate.addClassNames("returnDate");
-        departureDate
-                .addValueChangeListener(e -> returnDate.setMin(e.getValue()));
-        returnDate.addValueChangeListener(
-                e -> departureDate.setMax(e.getValue()));
-
-        Button createTrackBtn = new Button("Создать трек");
-        createTrackBtn.addClassNames("createTrackBtn");
-
-        tracksInfoContainer.add(carLabel,carSelect, departureDate, returnDate, createTrackBtn);
-
-        this.add(tracksInfoContainer);
-    }
+//    public void tracksInfoContainer() {
+//        tracksInfoContainer = new Div();
+//        tracksInfoContainer.addClassNames("tracksInfoContainer");
+//        Label carLabel = new Label("Выберите автомобиль");
+//        carLabel.addClassNames("carLabel");
+//
+//        Select<Car> carSelect = new Select<>();
+//        carSelect.addClassNames("carSelect");
+//
+//        List<Car> carList = new ArrayList<>();
+//        carSelect.setItems(carList);
+//        carSelect.setItemLabelGenerator(car ->
+//                String.format("%s %s(%s)",car.getBrand(), car.getModel(), car.getRegistrationNumber()));
+//
+//        DatePicker departureDate = new DatePicker("Начальная дата");
+//        departureDate.addClassNames("departureDate");
+//        DatePicker returnDate = new DatePicker("Финальная дата");
+//        returnDate.addClassNames("returnDate");
+//        departureDate
+//                .addValueChangeListener(e -> returnDate.setMin(e.getValue()));
+//        returnDate.addValueChangeListener(
+//                e -> departureDate.setMax(e.getValue()));
+//
+//        Button createTrackBtn = new Button("Создать трек");
+//        createTrackBtn.addClassNames("createTrackBtn");
+//
+//        tracksInfoContainer.add(carLabel,carSelect, departureDate, returnDate, createTrackBtn);
+//
+//        this.add(tracksInfoContainer);
+//    }
 }

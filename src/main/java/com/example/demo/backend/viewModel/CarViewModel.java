@@ -14,5 +14,4 @@ public class CarViewModel extends PersistentObject {
     String brand;
     String model;
     String registrationNumber;
-
 }

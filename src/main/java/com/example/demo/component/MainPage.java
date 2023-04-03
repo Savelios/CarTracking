@@ -6,11 +6,13 @@ import com.example.demo.component.view.MapView;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.stereotype.Component;
 
 @Route(value = "/main", layout = MainLayout.class)
 @AnonymousAllowed
 @Component
+@UIScope
 public class MainPage extends SplitLayout {
     private final MapView mapView;
     private final SideBarView sideBarView;

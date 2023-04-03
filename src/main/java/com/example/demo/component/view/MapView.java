@@ -7,6 +7,7 @@ import com.example.demo.utils.MapJSUtil;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@UIScope
 public class MapView extends VerticalLayout {
     private boolean viewLunch = false;
     private Button btnCenter = new Button("Показать");

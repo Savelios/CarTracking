@@ -6,6 +6,9 @@ import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.spring.annotation.UIScope;
+
+@UIScope
 public class HeaderView extends HorizontalLayout {
     private final AuthenticatedUser authenticatedUser;
     public HeaderView(AuthenticatedUser authenticatedUser) {
@@ -44,7 +47,7 @@ public class HeaderView extends HorizontalLayout {
         });
 
 
-        if (authenticatedUser.get().isPresent()) {
+        if (!authenticatedUser.get().isPresent()) {
             btnsContainer.setVisible(true);
         } else {
             btnsContainer.setVisible(false);

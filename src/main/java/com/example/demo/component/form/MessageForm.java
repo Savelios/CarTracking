@@ -31,8 +31,7 @@ public class MessageForm extends Div {
 
         comboBox.setAllowCustomValue(true);
         comboBox.setItems(Arrays.stream(MessageType.values()).map(MessageType::getRusName).toList());
-
-
+        
         int charLimit = 600;
         Button enterButton = new Button("Отправить");
         TextArea textArea = new TextArea();

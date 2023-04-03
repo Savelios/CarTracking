@@ -1,8 +1,8 @@
-.tracksInfoContainer {
+.carRoutesView {
     display: flex;
     flex-direction: column;
     width: 345px;
-    height: 245px;
+    height: 295px;
     padding: 10px 15px;
     background-color: rgb(43, 43, 43);
     border-radius: 8px;
@@ -33,3 +33,21 @@
     background-color: rgba(42, 126, 182, 0.918);
     cursor: pointer;
   }
+
+  vaadin-select > label {
+    color: aliceblue;
+}
+  vaadin-date-picker > label {
+    color: aliceblue;
+}
+vaadin-select-value-button[placeholder]{
+  color: aliceblue;
+}
+
+vaadin-select-value-button > vaadin-select-item{
+  color: aliceblue;
+}
+
+vaadin-select::part(input-field){
+  color: rgb(105, 105, 105);
+}
