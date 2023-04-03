@@ -13,6 +13,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Car extends PersistentObject {
+//    @Column(name = "userId")
+//    Long userId;
     @Column(name = "brand")
     String brand;
     @Column(name = "model")

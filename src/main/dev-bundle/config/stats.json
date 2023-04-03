@@ -232,9 +232,11 @@
   "Frontend/generated/jar-resources/vaadin-grid-flow-selection-column.js",
   "Frontend/generated/jar-resources/vaadin-map/mapConnector.js",
   "Frontend/generated/jar-resources/vaadin-time-picker/timepickerConnector.js",
-  "Frontend/generated/jar-resources/virtualListConnector.js"
+  "Frontend/generated/jar-resources/virtualListConnector.js",
+  "Frontend/src/map/MapHelper.js"
  ],
  "frontendHashes": {
+  "src/map/MapHelper.js": "9163fcf256e3bae04faa393f476c13ddb394045070b54ba0e4ad627bb39592c6",
   "leaflet/leaflet-custom.css": "b14548fbbd066bc3be5be6a7c15a6e82439f63a26ee5f47d142b87dffacd35ad",
   "comboBoxConnector.js": "1d004c3dae9c76f8bcc68678abe1b8f7bdc8b456f5c9c4c7f190df8ed25d66cd",
   "contextMenuConnector.js": "25a200f8086461635ddd92316ebeb5a868294c8650a190efbae120edb1088f4f",
@@ -259,7 +261,7 @@
   "cartracking": "{\n  \"lumoImports\": [\n    \"typography\",\n    \"color\",\n    \"badge\",\n    \"utility\"\n  ]\n}"
  },
  "entryScripts": [
-  "VAADIN/build/indexhtml-7a9ce51c.js"
+  "VAADIN/build/indexhtml-31da2ecb.js"
  ],
  "webComponents": [],
  "packageJsonHash": "dc81b9c2349b6932b20f402c0cec3c70128116e1bb05bb85c5e7a1d87e50e5e4"

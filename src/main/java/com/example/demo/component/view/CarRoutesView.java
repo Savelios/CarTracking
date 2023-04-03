@@ -35,35 +35,31 @@ public class CarRoutesView extends Div {
     CarRoutesView(MapView mapView,
                   CarService carService,
                   LocationService locationService) {
-
         this.carService = carService;
-        this.mapView = mapView;
         this.locationService = locationService;
+
+        //todo change to get cars by user. get user from Authenticated user.
+        var cars = carService.getAll();
+        this.state = new CarRouteViewModel(cars);
+
+        this.mapView = mapView;
+
+        this.carSelect = createCarSelect();
         this.departureDatePicker = createDepartureDatePicker();
         this.returnDatePicker = createReturnDatePicker();
         this.createTrackBtn = createTrackButton();
 
-        //todo change to get cars by user. get user from Authenticated user.
-        var cars = carService.getAll();
-        state = new CarRouteViewModel(cars);
+        this.addClassNames("carRoutesView");
+        this.add(carSelect, departureDatePicker, returnDatePicker, createTrackBtn);
+    }
 
-        addClassNames("carRoutesView");
-        add(carSelect, departureDatePicker, returnDatePicker, createTrackBtn);
-    }
-    private static class CarRouteViewModel {
-        final List<CarViewModel> cars;
-        LocalDate departureDate;
-        LocalDate returnDate;
-        CarRouteViewModel(List<CarViewModel> cars) {
-            this.cars = cars;
-        }
-    }
-    public void createCarSelect() {
-        carSelect = new Select<>();
+    public Select<CarViewModel> createCarSelect() {
+        Select<CarViewModel> carSelect = new Select<>();
         carSelect.setLabel("Выберите автомобиль");
         carSelect.setItems(state.cars);
         carSelect.setItemLabelGenerator(car ->
                 String.format("%s %s(%s)",car.getBrand(), car.getModel(), car.getRegistrationNumber()));
+        return carSelect;
     }
     private Button createTrackButton(){
         if (this.createTrackBtn != null)
@@ -77,9 +73,7 @@ public class CarRoutesView extends Div {
                     .stream()
                     .map(l -> new MapJSUtil.Coordinate(l.getLat(), l.getLon()))
                     .toList();
-            createCarSelect();
             mapView.addRoute(coordinates);
-            createCarSelect();
         });
         return createBtn;
     }
@@ -114,5 +108,14 @@ public class CarRoutesView extends Div {
                     state.returnDate = event.getValue();
                 });
         return returnDate;
+    }
+
+    private static class CarRouteViewModel {
+        final List<CarViewModel> cars;
+        LocalDate departureDate;
+        LocalDate returnDate;
+        CarRouteViewModel(List<CarViewModel> cars) {
+            this.cars = cars;
+        }
     }
 }

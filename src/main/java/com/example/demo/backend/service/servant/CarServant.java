@@ -4,6 +4,7 @@ import com.example.demo.backend.domain.Car;
 import com.example.demo.backend.repository.CarRepository;
 import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.backend.viewModel.CarViewModel;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -66,6 +67,7 @@ public class CarServant {
                 .registrationNumber(registrationNumber)
                 .model(model)
                 .build();
+
         repository.save(car);
     }
 

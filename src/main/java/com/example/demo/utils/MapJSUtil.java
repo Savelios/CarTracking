@@ -89,12 +89,8 @@ public class MapJSUtil {
         return withVariableName;
     }
 
-    private static String coordinatesArrayScript(Collection<Coordinate> coordinates) {
-        final String scriptTemplate = """
-                [
-                    %s
-                ]
-                """;
+    public static String coordinatesArrayScript(Collection<Coordinate> coordinates) {
+        final String scriptTemplate = "[%s]";
         final String coordinateTemplate = "[%s, %s]";
         final String coordinatesStr = coordinates.stream()
                 .map(coordinate -> String.format(coordinateTemplate, coordinate.latitude, coordinate.longitude))

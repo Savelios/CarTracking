@@ -5,6 +5,7 @@ import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.backend.views.ContentView;
 import com.example.demo.backend.views.HeaderView;
 import com.example.demo.backend.views.SideBarView;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;

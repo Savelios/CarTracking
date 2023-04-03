@@ -5,6 +5,7 @@ import com.example.demo.backend.service.Impl.security.AuthenticatedUser;
 import com.example.demo.ui.OSMMapView;
 import com.example.demo.utils.MapJSUtil;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.spring.annotation.UIScope;
@@ -21,6 +22,7 @@ public class MapView extends VerticalLayout {
     private Button btnCenter = new Button("Показать");
     private OSMMapView mapView;
     private final AuthenticatedUser authenticatedUser;
+
     public MapView(CarService carService,
                    AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
@@ -47,6 +49,14 @@ public class MapView extends VerticalLayout {
 
     public void addRoute(List<MapJSUtil.Coordinate> coordinates) {
         //todo add route to map
-        Notification.show("Show coordinates " + String.join(" ,", coordinates.toString()));
+        var coords = List.of(
+                new MapJSUtil.Coordinate(55.0, 1.0),
+                new MapJSUtil.Coordinate(53.0, -67.0),
+                new MapJSUtil.Coordinate(35.0, 41.0),
+                new MapJSUtil.Coordinate(-16.0, -17.0),
+                new MapJSUtil.Coordinate(5.0, 21.0)
+                );
+
+        mapView.addPolyline(coords);
     }
 }
